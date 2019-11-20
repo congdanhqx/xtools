@@ -86,4 +86,7 @@ EOF
 done
 
 XNEW_EDITOR=${VISUAL:-${EDITOR:-vi}}
-exec $XNEW_EDITOR +3 $srcdir/$PKG/template
+case "$XNEW_EDITOR" in
+	*vi*) args=+3 ;;
+esac
+exec $XNEW_EDITOR $args $srcdir/$PKG/template
